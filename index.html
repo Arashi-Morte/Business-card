@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ұлы-Тау — электронная визитка</title>
+<meta property="og:title" content="Ұлы-Тау — электронная визитка">
+<meta property="og:description" content="Психиатрия, неврология және психология орталығы">
+<meta property="og:image" content="vizitka.png">
+<style>
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    min-height: 100%;
+    background: #eef5f8;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+  }
+  .card {
+    position: relative;
+    width: min(1170px, 100%);
+    aspect-ratio: 1170 / 658;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0,0,0,.18);
+    background: white;
+  }
+  .card > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  a.hotspot {
+    position: absolute;
+    display: block;
+    z-index: 5;
+    text-decoration: none;
+    border-radius: 10px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  a.hotspot:focus-visible {
+    outline: 3px solid #fff;
+    box-shadow: 0 0 0 5px rgba(0,120,215,.8);
+  }
+
+  /* Имя специалиста — добавлено поверх оригинальной визитки */
+  .name {
+    position: absolute;
+    z-index: 4;
+    left: 25%;
+    top: 78.2%;
+    width: 50%;
+    text-align: center;
+    font-weight: 700;
+    font-size: clamp(22px, 2vw, 21px);
+    line-height: 1.15;
+    color: #24343d;
+    text-shadow: 0 1px 2px rgba(255,255,255,.9);
+    pointer-events: none;
+  }
+
+  /* Номер WhatsApp: новый номер */
+  .wa-label {
+    position: absolute;
+    z-index: 4;
+    left: 34%;
+    top: 93.5%;
+    width: 31%;
+    text-align: center;
+    font-weight: 700;
+    font-size: clamp(22px, 3.5vw, 22px);
+    color: #26343a;
+    text-shadow: 0 1px 2px rgba(255,255,255,.9);
+    pointer-events: none;
+  }
+
+  /* Номер для обычного звонка */
+  .call-label {
+    position: absolute;
+    z-index: 4;
+    left: 39%;
+    top: 91.5%;
+    width: 31%;
+    text-align: center;
+    font-weight: 700;
+    font-size: clamp(11px, 1.45vw, 18px);
+    color: #26343a;
+    text-shadow: 0 1px 2px rgba(255,255,255,.9);
+    pointer-events: none;
+  }
+
+  /* Кликабельные области */
+  .address-link { left: 0%; top: 73%; width: 32%; height: 27%; }
+  .whatsapp-link { left: 32%; top: 93%; width: 30%; height: 6%; }
+  .call-link { left: 32%; top: 85%; width: 40%; height: 8%; }
+  .instagram-link { left: 72%; top: 76%; width: 28%; height: 24%; }
+
+  /* Небольшая подсказка только при наведении на ПК */
+  @media (hover:hover) {
+    .hotspot:hover { background: rgba(255,255,255,.12); }
+  }
+
+  @media (max-width: 600px) {
+    .page { padding: 0; align-items: flex-start; }
+    .card { border-radius: 0; box-shadow: none; width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <main class="card" aria-label="Электронная визитка центра Ұлы-Тау">
+    <img src="vizitka.png" alt="Визитка центра Ұлы-Тау">
+
+    <div class="name">Приходько Татьяна Сергеевна</div>
+    <div class="wa-label">+7 702 293 21 82</div>
+
+    <!-- Адрес → 2GIS -->
+    <a class="hotspot address-link"
+       href="https://2gis.kz/almaty/search/%D0%9A%D0%B0%D0%B1%D0%B0%D0%BD%D0%B1%D0%B0%D0%B9%20%D0%B1%D0%B0%D1%82%D1%8B%D1%80%20236"
+       target="_blank" rel="noopener"
+       aria-label="Открыть адрес в 2GIS"></a>
+
+    <!-- Новый номер → WhatsApp -->
+    <a class="hotspot whatsapp-link"
+       href="https://wa.me/77022932182"
+       target="_blank" rel="noopener"
+       aria-label="Написать в WhatsApp на номер +7 702 293 21 82"></a>
+
+    <!-- Старый номер → обычный звонок -->
+    <a class="hotspot call-link"
+       href="tel:+77086139140"
+       aria-label="Позвонить по номеру +7 708 613 91 40"></a>
+
+    <!-- Instagram -->
+    <a class="hotspot instagram-link"
+       href="https://instagram.com/uly_tau_center"
+       target="_blank" rel="noopener"
+       aria-label="Открыть Instagram @uly_tau_center"></a>
+  </main>
+</div>
+</body>
+</html>
